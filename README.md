@@ -99,10 +99,10 @@ API docs available at **http://localhost:8000/docs**.
 ## Key design decisions
 
 ### Chunking with overlap
-Chunks are 300 tokens with 50-token overlap. Without overlap, a sentence that straddles a chunk boundary would appear truncated in both adjacent chunks — the LLM sees half a thought. Overlap ensures every sentence appears fully in at least one chunk.
+Chunks are 300 tokens with 50-token overlap. Without overlap, a sentence that straddles a chunk boundary would appear truncated in both adjacent chunks. Overlap ensures every sentence appears fully in at least one chunk.
 
 ### BM25 + LSA hybrid retrieval
-BM25 (via `rank_bm25`) is fast and interpretable — it rewards exact keyword matches. TF-IDF + Truncated SVD ("LSA") maps chunks into a 64-dimensional semantic space, capturing synonymy and latent topics that BM25 misses. Neither alone is sufficient: BM25 fails on paraphrases; dense retrieval fails on rare terms.
+BM25 (via `rank_bm25`) is fast and interpretable and rewards exact keyword matches. TF-IDF + Truncated SVD ("LSA") maps chunks into a 64-dimensional semantic space, capturing synonymy and latent topics that BM25 misses. Neither alone is sufficient: BM25 fails on paraphrases; dense retrieval fails on rare terms.
 
 ### Reciprocal Rank Fusion (RRF) over weighted sum
 BM25 scores and cosine similarities live on completely different numeric scales. Normalizing them with weights (`α·bm25 + β·dense`) requires careful per-corpus tuning. RRF ignores raw scores entirely and fuses only rank order:
