@@ -1,6 +1,6 @@
 # Librarian
 
-**Document Q&A with transparent hybrid retrieval — a Pacific applied AI demo.**
+**Document Q&A with transparent hybrid retrieval.**
 
 Upload PDFs, text files, or Markdown. Ask questions in natural language. Get cited answers streamed in real time, with a live context inspector that shows exactly which chunks were retrieved, why they scored highly, and how many tokens were used.
 
