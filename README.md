@@ -22,20 +22,6 @@ Every step is made visible:
 
 ---
 
-## Why this matters for Pacific
-
-Pacific builds **enterprise context management infrastructure** (ECMS) — the layer that decides what information an AI agent can see, when, and how much. That layer is usually invisible. This demo makes it transparent.
-
-In production (like Pacific's ECMS), this same loop would also:
-- Enforce document-level permissions per user or agent
-- Maintain a persistent index across sessions (not in-memory)
-- Serve multiple agents simultaneously with quota-aware context budgets
-- Log every retrieval decision for auditability
-
-This is that core loop, built openly so you can see every moving part.
-
----
-
 ## Architecture
 
 ```
