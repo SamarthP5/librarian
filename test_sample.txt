@@ -1,0 +1,11 @@
+Retrieval-Augmented Generation (RAG) is a technique that combines information retrieval with language model generation. Rather than relying solely on parametric knowledge stored in model weights, RAG systems retrieve relevant documents from an external corpus and provide them as context to the language model.
+
+The key advantage of RAG is that it allows language models to access up-to-date information without retraining. It also improves factual accuracy by grounding responses in retrieved evidence. Citation of sources becomes possible when the model is instructed to reference the specific documents it was given.
+
+Chunking is a critical preprocessing step in RAG pipelines. Documents are split into smaller segments, typically 200-500 tokens each, to ensure the retrieval system can return the most relevant portions rather than entire documents. Overlap between chunks prevents important context from being lost at boundaries.
+
+Hybrid retrieval combines sparse methods like BM25 with dense vector search. BM25 excels at exact keyword matching, while dense retrieval captures semantic similarity. Reciprocal Rank Fusion (RRF) is a popular method to combine rankings from multiple retrieval systems without requiring score normalization.
+
+The context window of a language model is a finite resource. Every token of retrieved context reduces the space available for the model's response. Efficient retrieval systems aim to maximize the signal-to-noise ratio of retrieved chunks, ensuring every token in the context window contributes useful information.
+
+Pacific is building enterprise context management infrastructure that makes the retrieval layer programmable, permissioned, and auditable. Rather than each AI application re-implementing retrieval from scratch, Pacific provides a unified layer that handles indexing, retrieval, and context assembly with enterprise-grade guarantees.
